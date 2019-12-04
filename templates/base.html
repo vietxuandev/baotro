@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <title>{% block title %} {% endblock %}</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.png' %}"/>
+</head>
+<body>
+<div id="header">
+    <img class="image-header" src="{% static 'images/header.png' %}">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <div class="container"><a class="navbar-brand" href="{% url 'home:index' %}"><i
+                class="icon-home fa fa-home"></i> Trang chủ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+                    aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropbtn" href="{% url 'home:about' %}">Giới thiệu</a>
+                        <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="#">Quyết định thành lập</a>
+                            <a class="dropdown-item" href="#">Quyết định sát nhập</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin tức- Sự kiện</a>
+                        <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="#">Tin trung tâm</a>
+                            <a class="dropdown-item" href="#">Tin trong tỉnh</a>
+                            <a class="dropdown-item" href="#">Hoàn cảnh cần giúp đỡ</a>
+                            <a class="dropdown-item" href="#">Thông tin chỉ đạo, điều hành</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Văn bản</a>
+                        <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="#">Cải cách hành chính</a>
+                            <a class="dropdown-item" href="#">Văn bản mới</a>
+                            <a class="dropdown-item" href="#">Thông báo</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thư viện ảnh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thư viện video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-md-0">
+                    <input class="form-control" type="text" placeholder="Tìm kiếm" aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<div id="main">
+    <div class="container main">
+        {% block base %}
+        {% endblock %}
+    </div>
+</div>
+
+<div id="footer">
+
+    <div class="container footer">
+        <!--Google map-->
+        <div id="gmap" class="contact-map">
+            <iframe src="https://maps.google.com/maps?q=Trung tâm bảo trợ trẻ em vũng tàu&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0"
+                    style="apsborder:0" allowfullscreen></iframe>
+        </div>
+        <!--Google Maps-->
+    </div>
+    <div class="contact-title container">Liên hệ với chúng tôi</div>
+    <div class="contact container">
+        <div class="footer-name">Trung tâm bảo trợ trẻ em thành phố Vũng Tàu</div>
+        <div class="footer-content">Địa chỉ: 120 Nguyễn Văn Hưởng, phường Long Tâm, Tp. Bà Rịa, tỉnh Bà Rịa - Vũng
+            Tàu.
+        </div>
+        <div class="footer-content">Điện thoại: (0643) 827406 | Fax: (+84)643 736274</div>
+        <div class="footer-content">Website: www.ttcongtacxahoibrvt.vn | Email: ttctxhbariavungtau@gmail.com</div>
+        <div class="social-contact">
+            <div class="social-icons">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-twitter"></i></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-dribbble"></i></a>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0&appId=423326028560878&autoLogAppEvents=1"></script>
+</body>
+</html>
