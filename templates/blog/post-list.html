@@ -2,5 +2,9 @@
 {% load static %}
 {% block title %}Danh sách bài đăng{% endblock %}
 {% block base %}
-
+    {% for post in posts %}
+        <div class="post-item">
+            <a href="{% url 'blog:post-detail' post.id %}">{{ post.title }}</a> {{ post.created_date }}
+        </div>
+    {% endfor %}
 {% endblock %}

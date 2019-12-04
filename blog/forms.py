@@ -2,16 +2,16 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
-from home.models import UserProfile, Post
+from authentication.models import UserProfile
+from blog.models import Post
 
 
 class PostNewForm(forms.ModelForm):
-    username = forms.CharField(max_length=30)
-    password = forms.PasswordInput()
-
     class Meta:
         model = Post
-        fields = ()
+        fields = ('title', 'image', 'video_link', 'content', 'created_date', 'published_date')
+
+
 
 class ExtendedUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)

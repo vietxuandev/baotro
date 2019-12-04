@@ -2,5 +2,7 @@
 {% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block base %}
-
+    <div class="post-title">{{ post.title }}</div>
+    <div class="post-image">{{ post.image }}</div>
+    <div class="post-content">{{ post.content | safe }}</div>
 {% endblock %}
