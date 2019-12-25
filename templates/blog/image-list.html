@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Danh sách hình ảnh{% endblock %}
+{% block name %}Danh sách hình ảnh{% endblock %}
+{% block base %}
+    <div class="content-wrapper">
+        {% for post in posts %}
+            <div class="post-item">
+                <a href="{% url 'blog:image-detail' %}?id={{ post.id }}">
+                    <div class="title">{{ post.title }}</div>
+                    <div class="image"><img src="{{ post.default_image.image.url }}"></div>
+                    <div class="description">{{ post.description }}</div>
+                    <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% include "blog/pagination.html" %}
+{% endblock %}

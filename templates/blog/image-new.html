@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Thêm hình ảnh{% endblock %}
+{% block name %}Thêm hình ảnh{% endblock %}
+{% block base %}
+    <div class="content-wrapper">
+        <form method="post" action="{% url 'blog:image-new' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_image">Hình ảnh:</label>
+            <div class="custom-file">
+                {{ image_form.images }}
+                <label class="custom-file-label" for="id_image">Chọn hình ảnh</label>
+            </div>
+            <label for="id_title">Tên bài đăng:</label>
+            {{ post_image_form.title }}
+            <label for="id_description">Mô tả:</label>
+            {{ post_image_form.description }}
+            <input style="float: right; margin-top: 30px; margin-bottom: 30px" class="btn btn-success" type="submit"
+                   value="Tạo bài viết">
+        </form>
+    </div>
+{% endblock %}

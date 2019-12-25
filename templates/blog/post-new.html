@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Tạo bài đăng{% endblock %}
+{% block name %}Tạo bài đăng{% endblock %}
 {% block base %}
-    <form method="post" action="{% url 'blog:post-new' %}">
-        {% csrf_token %}
-        {{ form.title }}
-        {{ form.image }}
-        {{ form.video_link }}
-        {{ form.content | safe }}
-        {{ form.media }}
-        {{ form.created_date }}
-        {{ form.published_date }}
-        <input type="submit" value="Tạo bài viết">
-    </form>
+    <div class="content-wrapper">
+        <form method="post" action="{% url 'blog:post-new' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_title">Tên bài đăng:</label>
+            {{ form.title }}
+            <label for="id_image">Hình ảnh minh họa:</label>
+            <div class="custom-file">
+                {{ form.image }}
+                <label class="custom-file-label" for="id_image">Chọn hình ảnh</label>
+            </div>
+            <label for="id_video_link">Đường dẫn video:</label>
+            {{ form.video_link }}
+            <label for="id_description">Mô tả:</label>
+            {{ form.description }}
+            <label for="cke_id_content">Nội dung chi tiết:</label>
+            <div class="d-flex justify-content-center">
+                {{ form.content | safe }}
+                {{ form.media }}
+            </div>
+            <input style="float: right; margin-top: 30px; margin-bottom: 30px" class="btn btn-success" type="submit" value="Tạo bài viết">
+        </form>
+    </div>
 {% endblock %}

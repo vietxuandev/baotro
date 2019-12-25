@@ -3,14 +3,62 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 from authentication.models import UserProfile
-from blog.models import Post
+from blog.models import Post, PostImage, Image
+
+
+class ImageForm(forms.Form):
+    images = forms.FileField(widget=forms.ClearableFileInput(attrs={'class': 'custom-file-input', 'multiple': True}))
+
+
+class PostImageForm(forms.ModelForm):
+    class Meta:
+        model = PostImage
+        fields = ('title', 'description')
+        widgets = {
+            'title': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nhập tên bài đăng'
+                }
+            ),
+            'description': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nhập mô tả bài viết'
+                }
+            ),
+        }
 
 
 class PostNewForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'image', 'video_link', 'content', 'created_date', 'published_date')
-
+        fields = ('title', 'image', 'video_link', 'description', 'content')
+        widgets = {
+            'title': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nhập tên bài đăng'
+                }
+            ),
+            'image': forms.FileInput(
+                attrs={
+                    'class': 'custom-file-input'
+                }
+            ),
+            'video_link': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nhập đường dẫn liên kết video'
+                }
+            ),
+            'description': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Nhập mô tả bài viết'
+                }
+            )
+        }
 
 
 class ExtendedUserCreationForm(UserCreationForm):

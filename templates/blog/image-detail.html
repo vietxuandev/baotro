@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block name %}Hình ảnh{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block base %}
+    <div class="post-title">{{ post.title }}</div>
+    <div class="description">{{ post.description }}</div>
+    <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+    {% for image_detail in images_detail %}
+        <div class="post-image"><img src="{{ image_detail.image.url }}"></div>
+    {% endfor %}
+{% endblock %}

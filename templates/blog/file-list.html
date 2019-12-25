@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block name %}Danh sách file{% endblock %}
+{% block title %}Danh sách file{% endblock %}
+{% block url %}{% url 'blog:file-list' %}{% endblock %}
+{% block base %}
+    <table class="table table-bordered">
+        <thead>
+        <tr class="d-flex">
+            <th class="col-1">#</th>
+            <th class="col-2">Số hiệu</th>
+            <th class="col-7">Tên văn bản</th>
+            <th class="col-2">Ngày ban hành</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr class="d-flex">
+                <th class="col-1" scope="row">{{ forloop.counter }}</th>
+                <td class="col-2">{{ post.number }}</td>
+                <td class="col-7"><a href="{{ post.file.url }}">{{ post.name }}</a></td>
+                <td class="col-2">{{ post.created_date|date:"d/m/Y" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

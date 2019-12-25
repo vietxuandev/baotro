@@ -1,30 +1,58 @@
-/*price range*/
+$('#carousel-example').on('slide.bs.carousel', function (e) {
+    /*
+        CC 2.0 License Iatek LLC 2018 - Attribution required
+    */
+    let $e = $(e.relatedTarget);
+    let idx = $e.index();
+    let itemsPerSlide = 5;
+    let totalItems = $('.carousel-item').length;
 
- $('#sl2').slider();
-
-	var RGBChange = function() {
-	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
-		
-/*scroll to top*/
-
-$(document).ready(function(){
-	$(function () {
-		$.scrollUp({
-	        scrollName: 'scrollUp', // Element ID
-	        scrollDistance: 300, // Distance from top/bottom before showing element (px)
-	        scrollFrom: 'top', // 'top' or 'bottom'
-	        scrollSpeed: 300, // Speed back to top (ms)
-	        easingType: 'linear', // Scroll to top easing (see http://easings.net/)
-	        animation: 'fade', // Fade, slide, none
-	        animationSpeed: 200, // Animation in speed (ms)
-	        scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
-					//scrollTarget: false, // Set a custom target element for scrolling to the top
-	        scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
-	        scrollTitle: false, // Set a custom <a> title if required.
-	        scrollImg: false, // Set true to use image
-	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-	        zIndex: 2147483647 // Z-Index for the overlay
-		});
-	});
+    if (idx >= totalItems - (itemsPerSlide - 1)) {
+        let it = itemsPerSlide - (totalItems - idx);
+        for (let i = 0; i < it; i++) {
+            // append slides to end
+            if (e.direction == "left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            } else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
 });
+// $(function () {
+//     $(".test").click(function (e) {
+//         pageurl = $(this).attr('href');
+//         $.ajax({
+//             url: pageurl,
+//             cache: false,
+//             beforeSend: function () {
+//                 $('#loading').show();
+//             },
+//             complete: function () {
+//                 $('#loading').hide();
+//             },
+//             success: function (html) {
+//                 console.log(html);
+//                 $('.left-content').html(html);
+//             }
+//         });
+//         if (pageurl != window.location) {
+//             window.history.pushState({path: pageurl}, '', pageurl);
+//         }
+//         return false;
+//     });
+// });
+
+$('#id_image').on('change', function () {
+    let fileName = $(this).val();
+    $(this).next('.custom-file-label').html(fileName);
+})
+
+$('#id_images').on('change', function () {
+    let files = $(this).prop("files")
+    let names = $.map(files, function (val) {
+        return val.name;
+    });
+    console.log(names.length);
+    $(this).next('.custom-file-label').html(`Mục đã được chọn (${names.length})`);
+})

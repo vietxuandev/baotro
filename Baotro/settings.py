@@ -24,7 +24,7 @@ SECRET_KEY = 'n)1^!8vvm@-_0dty8is2qdten8z6n&5kuu18o$jvfex7$%d&4u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['150.95.113.203']
 
 # Application definition
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'home',
     'ckeditor',
     'authentication',
-    'blog'
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +77,17 @@ LOGIN_REDIRECT_URL = '/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': 'auto',
+    },
+}
+
+DATETIME_FORMAT = '%d/%m/%Y %H:%M %p'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
