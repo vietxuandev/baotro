@@ -9,7 +9,11 @@ from blog.models import Post, PostImage, PostVideo, PostFile, Image
 
 
 def post_list(request):
-    posts_page = Post.objects.all().order_by('-created_date')
+    type = request.GET.get('type')
+    if type:
+        posts_page =Post.objects.filter(type=str(type)).order_by('-created_date')
+    else:
+        posts_page = Post.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
     paginator = Paginator(posts_page, 5)
     try:

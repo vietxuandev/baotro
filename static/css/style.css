@@ -175,8 +175,22 @@ a.arrow-title {
     margin-bottom: 10px;
 }
 
-.hot-news .post-item .post-item-content .description {
-    font-size: 30px;
+.post-content img {
+        width: 100% !important;
+    height: auto !important;
+}
+.tab-content {
+    padding-top: 15px;
+}
+.tab-content .description{
+      width : 100%;
+  overflow:hidden;
+  display:inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tab-content .post-item .title {
+    font-size: 16px;
 }
 
 .social-contact .social-icons ul li a {
@@ -263,7 +277,7 @@ a#scrollUp i {
 }
 
 .post-item .title {
-    font-size: 30px;
+    font-size: 24px;
     display: inline;
 }
 

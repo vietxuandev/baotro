@@ -15,13 +15,13 @@ class Post(models.Model):
         ('3', 'Thông tin chỉ đạo, điều hành'),
     ]
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    image = models.ImageField(blank=True)
-    video_link = models.URLField(max_length=2000, blank=True)
-    description = models.CharField(max_length=500, blank=True)
-    content = RichTextField(blank=True, null=True)
-    type = models.CharField(default='0', max_length=100, choices=type_choices)
-    created_date = models.DateTimeField(default=timezone.now)
+    title = models.CharField("Tiêu đề",max_length=200)
+    image = models.ImageField("Hình ảnh minh họa",blank=True)
+    # video_link = models.URLField(max_length=2000, blank=True)
+    description = models.CharField("Mô tả",max_length=500, blank=True)
+    content = RichTextField("Nội dung",blank=True, null=True)
+    type = models.CharField("Loại bài đăng",default='0', max_length=100, choices=type_choices)
+    created_date = models.DateTimeField("Ngày khởi tạo",default=timezone.now)
 
     # published_date = models.DateTimeField(blank=True, null=True)
     #

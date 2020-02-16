@@ -33,7 +33,7 @@ class PostImageForm(forms.ModelForm):
 class PostNewForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'image', 'video_link', 'description', 'content')
+        fields = ('title', 'image', 'description', 'content')
         widgets = {
             'title': forms.TextInput(
                 attrs={
@@ -46,12 +46,12 @@ class PostNewForm(forms.ModelForm):
                     'class': 'custom-file-input'
                 }
             ),
-            'video_link': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Nhập đường dẫn liên kết video'
-                }
-            ),
+            # 'video_link': forms.TextInput(
+            #     attrs={
+            #         'class': 'form-control',
+            #         'placeholder': 'Nhập đường dẫn liên kết video'
+            #     }
+            # ),
             'description': forms.TextInput(
                 attrs={
                     'class': 'form-control',

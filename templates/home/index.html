@@ -35,16 +35,94 @@
     </div>
     <ul class="nav nav-tabs nav-menu" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-               aria-selected="true">Văn bản chỉ đạo của bộ</a>
+            <a class="nav-link active" id="type_0-tab" data-toggle="tab" href="#type_0" role="tab" aria-controls="type_0"
+               aria-selected="true">Tin trung tâm</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-               aria-selected="false">Văn bản chỉ đạo của sở</a>
+            <a class="nav-link" id="type_1-tab" data-toggle="tab" href="#type_1" role="tab" aria-controls="type_1"
+               aria-selected="false">Tin trong tỉnh</a>
+        </li>
+            <li class="nav-item">
+            <a class="nav-link" id="type_2-tab" data-toggle="tab" href="#type_2" role="tab" aria-controls="type_2"
+               aria-selected="false">Hoàn cảnh cần giúp đỡ</a>
+        </li>
+            <li class="nav-item">
+            <a class="nav-link" id="type_3-tab" data-toggle="tab" href="#type_3" role="tab" aria-controls="type_3"
+               aria-selected="false">Thông tin chỉ đạo, điều hành</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade show active" id="type_0" role="tabpanel" aria-labelledby="type_0-tab">
+            <div class="row">
+                {% for post in posts_0 %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="post-item">
+                        <a href="{% url 'blog:post-detail' %}?id={{ post.id }}" class="full-image"><img
+                                src="{{ post.image.url }}"></a>
+                        <div class="post-item-content">
+                            <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
+                               class="title">{{ post.title }}</a>
+                            <div class="description">{{ post.description }}</div>
+                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="type_1" role="tabpanel" aria-labelledby="type_1-tab">
+            <div class="row">
+                {% for post in posts_1 %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="post-item">
+                        <a href="{% url 'blog:post-detail' %}?id={{ post.id }}" class="full-image"><img
+                                src="{{ post.image.url }}"></a>
+                        <div class="post-item-content">
+                            <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
+                               class="title">{{ post.title }}</a>
+                            <div class="description">{{ post.description }}</div>
+                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    <div class="tab-pane fade" id="type_2" role="tabpanel" aria-labelledby="type_2-tab">
+            <div class="row">
+                {% for post in posts_2 %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="post-item">
+                        <a href="{% url 'blog:post-detail' %}?id={{ post.id }}" class="full-image"><img
+                                src="{{ post.image.url }}"></a>
+                        <div class="post-item-content">
+                            <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
+                               class="title">{{ post.title }}</a>
+                            <div class="description">{{ post.description }}</div>
+                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    <div class="tab-pane fade" id="type_3" role="tabpanel" aria-labelledby="type_3-tab">
+            <div class="row">
+                {% for post in posts_3 %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="post-item">
+                        <a href="{% url 'blog:post-detail' %}?id={{ post.id }}" class="full-image"><img
+                                src="{{ post.image.url }}"></a>
+                        <div class="post-item-content">
+                            <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
+                               class="title">{{ post.title }}</a>
+                            <div class="description">{{ post.description }}</div>
+                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
