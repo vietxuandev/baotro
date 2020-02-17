@@ -1,4 +1,4 @@
 venv/
 media/
-.sssdb.sqlite3
-sssdb.sqlite3
+.db.sqlite3
+db.sqlite3
