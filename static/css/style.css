@@ -2,6 +2,13 @@ body {
     background-image: url("../images/bg.gif");
 }
 
+a {
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+}
+
 .main {
     margin-top: 10px;
     background-color: white;
@@ -191,6 +198,11 @@ a.arrow-title {
 }
 .tab-content .post-item .title {
     font-size: 16px;
+}
+
+.org-chart {
+    width: 100%;
+    height: auto;
 }
 
 .social-contact .social-icons ul li a {
@@ -549,4 +561,6 @@ a {
 
 .files {
     padding-left: 0;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
 }

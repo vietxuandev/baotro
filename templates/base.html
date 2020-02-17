@@ -26,10 +26,14 @@
             <div class="collapse navbar-collapse" id="navbarsExample09">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home:about' %}">Giới thiệu</a>
+                        <a class="nav-link {% if request.path == "/about" %}active{% endif %}" href="{% url 'home:about' %}">Giới thiệu</a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="{% url 'home:about' %}">Giới thiệu</a>
+                            <a class="dropdown-item" href="{% url 'home:org-chart' %}">Sơ đồ tổ chức</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tin tức- Sự kiện</a>
+                        <a class="nav-link {% if request.path == "/blog/post-list/" %}active{% endif %}" href="{% url 'blog:post-list' %}">Tin tức- Sự kiện</a>
                         <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
                             <a class="dropdown-item" href="{% url 'blog:post-list' %}?type=0">Tin trung tâm</a>
                             <a class="dropdown-item" href="{% url 'blog:post-list' %}?type=1">Tin trong tỉnh</a>
@@ -38,21 +42,21 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog:file-list' %}">Văn bản</a>
+                        <a class="nav-link {% if request.path == "/blog/file-list/" %}active{% endif %}" href="{% url 'blog:file-list' %}">Văn bản</a>
                         <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
-                            <a class="dropdown-item" href="#">Cải cách hành chính</a>
-                            <a class="dropdown-item" href="#">Văn bản mới</a>
-                            <a class="dropdown-item" href="#">Thông báo</a>
+                            <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=0">Cải cách hành chính</a>
+                            <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=1">Văn bản mới</a>
+                            <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=2">Thông báo</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog:image-list' %}">Thư viện ảnh</a>
+                        <a class="nav-link {% if request.path == "/blog/image-list/" %}active{% endif %}" href="{% url 'blog:image-list' %}">Thư viện ảnh</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog:video-list' %}">Thư viện video</a>
+                        <a class="nav-link {% if request.path == "/blog/video-list/" %}active{% endif %}" href="{% url 'blog:video-list' %}">Thư viện video</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'blog:file-list' %}" class="nav-link test">Liên hệ</a>
+                        <a class="nav-link {% if request.path == "/blog/file-list/" %}active{% endif %}" href="{% url 'blog:file-list' %}">Liên hệ</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0">
@@ -96,21 +100,21 @@
                     <a href="#" class="arrow-title">Hỗ trợ từ trung tâm</a>
                     <div class="content" style="text-align: center">
                         <div style="font-size: 20px; font-weight: 500">Số điện thoại</div>
-                        <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167);">0869123020</div>
+                        <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167);">0254 3560 522, 02543 615 339 </div>
                         <div style="font-size: 22px; font-weight: 600; color: red">Hotline: 0123456789</div>
                         <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167)">Email:</div>
-                        <div style="font-size: 20px; color: rgb(1, 100, 167)">vietxuandev@gmail.com</div>
+                        <div style="font-size: 20px; color: rgb(1, 100, 167)">trungtambttevungtau@gmail.com</div>
                     </div>
                 </div>
                 <div class="item-right">
-                    <a href="https://www.facebook.com/VietXuanDev" class="arrow-title">Fanpage facebook của trung
+                    <a href="https://www.facebook.com/bttevungtau" class="arrow-title">Fanpage facebook của trung
                         tâm</a>
-                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline"
+                    <div class="fb-page" data-href="https://www.facebook.com/bttevungtau" data-tabs="timeline"
                          data-width="500"
                          data-height="300" data-small-header="false" data-adapt-container-width="true"
                          data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a
-                                href="https://www.facebook.com/facebook">Facebook</a></blockquote>
+                        <blockquote cite="https://www.facebook.com/bttevungtau" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/bttevungtau">Facebook</a></blockquote>
                     </div>
                 </div>
             </div>
@@ -156,12 +160,11 @@
     </div>
     <div class="contact-title container">Liên hệ với chúng tôi</div>
     <div class="contact container">
-        <div class="footer-name">Trung tâm bảo trợ trẻ em thành phố Vũng Tàu</div>
-        <div class="footer-content">Địa chỉ: 120 Nguyễn Văn Hưởng, phường Long Tâm, Tp. Bà Rịa, tỉnh Bà Rịa - Vũng
-            Tàu.
+        <div class="footer-name">Trung tâm Bảo trợ trẻ em Thành Phố Vũng Tàu</div>
+        <div class="footer-content">Địa chỉ: 26 đường Ngô Quyền, phườn Thắng Nhất, Thành phố Vũng Tàu.
         </div>
-        <div class="footer-content">Điện thoại: (0643) 827406 | Fax: (+84)643 736274</div>
-        <div class="footer-content">Website: www.ttcongtacxahoibrvt.vn | Email: ttctxhbariavungtau@gmail.com</div>
+        <div class="footer-content">Điện thoại: 0254 3560 522 -  02543 615 339 | Fax: 0254 3560 522</div>
+        <div class="footer-content">Website: ttbaotrotreemvungtau.com | Email: trungtambttevungtau@gmail.com</div>
         <div class="social-contact">
             <div class="social-icons">
                 <ul class="nav nav-pills">

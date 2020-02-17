@@ -16,8 +16,18 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    files = PostFile.objects.all().order_by('-created_date')[:5]
+    images = PostImage.objects.all().order_by('-created_date')[:8]
+    return render(request, 'home/about.html', {'files': files, 'images': images})
+
+
+def org_chart(request):
+    files = PostFile.objects.all().order_by('-created_date')[:5]
+    images = PostImage.objects.all().order_by('-created_date')[:8]
+    return render(request, 'home/org-chart.html', {'files': files, 'images': images})
 
 
 def content(request):
-    return render(request, 'home/content-news.html')
+    files = PostFile.objects.all().order_by('-created_date')[:5]
+    images = PostImage.objects.all().order_by('-created_date')[:8]
+    return render(request, 'home/content-news.html', {'files': files, 'images': images})

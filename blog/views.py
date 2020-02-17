@@ -94,7 +94,11 @@ def video_list(request):
 
 
 def file_list(request):
-    posts = PostFile.objects.all().order_by('-created_date')
+    type = request.GET.get('type')
+    if type:
+        posts = PostFile.objects.filter(type=str(type)).order_by('-created_date')
+    else:
+        posts = PostFile.objects.all().order_by('-created_date')
     files = PostFile.objects.all().order_by('-created_date')[:5]
     images = PostImage.objects.all().order_by('-created_date')[:8]
     return render(request, 'blog/file-list.html', {'posts': posts, 'files': files, 'images': images})
