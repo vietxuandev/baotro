@@ -78,8 +78,7 @@ class Image(models.Model):
 class PostFile(models.Model):
     type_choices = [
         ('0', 'Cải cách hành chính'),
-        ('1', 'Văn bản mới'),
-        ('2', 'Thông báo')
+        ('1', 'Thông báo')
     ]
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     number = models.CharField(max_length=200, default='')

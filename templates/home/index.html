@@ -11,7 +11,7 @@
             <div class="post-item-content">
                 <a href="{% url 'blog:post-detail' %}?id={{ posts.0.id }}" class="title">{{ posts.0.title }}</a>
                 <div class="description">{{ posts.0.description }}</div>
-                <div class="date">{{ posts.0.created_date|date:"d/m/Y" }}</div>
+                <div class="clearfix"><div class="date">{{ posts.0.created_date|date:"d/m/Y" }}</div></div>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                             <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
                                class="title">{{ post.title }}</a>
                             <div class="description">{{ post.description }}</div>
-                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                            <div class="clearfix"><div class="date">{{ post.created_date|date:"d/m/Y" }}</div></div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                             <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
                                class="title">{{ post.title }}</a>
                             <div class="description">{{ post.description }}</div>
-                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                            <div class="clearfix"><div class="date">{{ post.created_date|date:"d/m/Y" }}</div></div>
                         </div>
                     </div>
                     </div>
@@ -81,7 +81,7 @@
                             <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
                                class="title">{{ post.title }}</a>
                             <div class="description">{{ post.description }}</div>
-                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                            <div class="clearfix"><div class="date">{{ post.created_date|date:"d/m/Y" }}</div></div>
                         </div>
                     </div>
                     </div>
@@ -99,7 +99,7 @@
                             <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
                                class="title">{{ post.title }}</a>
                             <div class="description">{{ post.description }}</div>
-                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                            <div class="clearfix"><div class="date">{{ post.created_date|date:"d/m/Y" }}</div></div>
                         </div>
                     </div>
                     </div>
@@ -117,7 +117,7 @@
                             <a href="{% url 'blog:post-detail' %}?id={{ post.id }}"
                                class="title">{{ post.title }}</a>
                             <div class="description">{{ post.description }}</div>
-                            <div class="date">{{ post.created_date|date:"d/m/Y" }}</div>
+                            <div class="clearfix"><div class="date">{{ post.created_date|date:"d/m/Y" }}</div></div>
                         </div>
                     </div>
                     </div>

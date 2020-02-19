@@ -44,9 +44,9 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/blog/file-list/" %}active{% endif %}" href="{% url 'blog:file-list' %}">Văn bản</a>
                         <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" href="{% url 'blog:file-list' %}">Văn bản mới</a>
                             <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=0">Cải cách hành chính</a>
-                            <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=1">Văn bản mới</a>
-                            <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=2">Thông báo</a>
+                            <a class="dropdown-item" href="{% url 'blog:file-list' %}?type=1">Thông báo</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -57,6 +57,14 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == "/blog/file-list/" %}active{% endif %}" href="{% url 'blog:file-list' %}">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên kết</a>
+                        <div class="dropdown-menu dropdown-content" aria-labelledby="dropdown09">
+                            <a class="dropdown-item" target="_blank" href="http://soldtbxh.baria-vungtau.gov.vn/">Sở lao động TB&XH</a>
+                            <a class="dropdown-item" target="_blank" href="http://www.baria-vungtau.gov.vn/sphere/baria/vungtau/page/trang-chu.cpx">UBND tỉnh BR-VT</a>
+                            <a class="dropdown-item" target="_blank" href="http://trungtamxahoi.soldtbxh.baria-vungtau.gov.vn/">Trung tâm công tác XH</a>
+                        </div>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0">
@@ -79,13 +87,12 @@
                     <a href="{% url 'blog:file-list' %}" class="arrow-title">Danh sách văn bản</a>
                     <ul class="files">
                         {% for file in files %}
-                            <li class="file-item" style="display: flex">
-                                <div style="width: 60%">
-                                    <a class="file-title" href="{{ file.file.url }}">{{ file.name }}</a>
+                            <li class="file-item">
+                                <div class="title clearfix">
+                                    <a class="file-title" href="{{ file.file.url }}">{{ file.number }}</a>
+                                    <div class="date">({{ file.created_date|date:"d/m/Y" }})</div>
                                 </div>
-                                <div style="width: 40%">
-                                    <div class="date">{{ file.created_date|date:"d/m/Y" }}</div>
-                                </div>
+                                <div class="name">{{ file.name }}</div>
                             </li>
                         {% endfor %}
                     </ul>
@@ -99,11 +106,13 @@
                 <div class="item-right">
                     <a href="#" class="arrow-title">Hỗ trợ từ trung tâm</a>
                     <div class="content" style="text-align: center">
-                        <div style="font-size: 20px; font-weight: 500">Số điện thoại</div>
-                        <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167);">0254 3560 522, 02543 615 339 </div>
-                        <div style="font-size: 22px; font-weight: 600; color: red">Hotline: 0123456789</div>
-                        <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167)">Email:</div>
-                        <div style="font-size: 20px; color: rgb(1, 100, 167)">trungtambttevungtau@gmail.com</div>
+{#                        <div style="font-size: 20px; font-weight: 500">Số điện thoại</div>#}
+{#                        <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167);">0254 3560 522, 02543 615 339 </div>#}
+                        <div style="font-size: 22px; font-weight: 600; color: red"><i class="fa fa-phone"></i> Hotline:</div>
+                        <div style="font-size: 22px; font-weight: 600; color: red"> 0254 3560 522</div>
+                        <div style="font-size: 22px; font-weight: 600; color: red"> 02543 615 339</div>
+                        <div style="font-size: 20px; font-weight: 500; color: rgb(1, 100, 167)"><i class="fa fa fa-envelope"></i> Email:</div>
+                        <div style="font-size: 20px; color: rgb(1, 100, 167)">ttbttevt@gmail.com</div>
                     </div>
                 </div>
                 <div class="item-right">
@@ -161,10 +170,10 @@
     <div class="contact-title container">Liên hệ với chúng tôi</div>
     <div class="contact container">
         <div class="footer-name">Trung tâm Bảo trợ trẻ em Thành Phố Vũng Tàu</div>
-        <div class="footer-content">Địa chỉ: 26 đường Ngô Quyền, phườn Thắng Nhất, Thành phố Vũng Tàu.
+        <div class="footer-content">Địa chỉ: 26 đường Ngô Quyền, phường Thắng Nhất, Thành phố Vũng Tàu.
         </div>
         <div class="footer-content">Điện thoại: 0254 3560 522 -  02543 615 339 | Fax: 0254 3560 522</div>
-        <div class="footer-content">Website: ttbaotrotreemvungtau.com | Email: trungtambttevungtau@gmail.com</div>
+        <div class="footer-content">Website: ttbaotrotreemvungtau.com | Email: ttbttevt@gmail.com</div>
         <div class="social-contact">
             <div class="social-icons">
                 <ul class="nav nav-pills">

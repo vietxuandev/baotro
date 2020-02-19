@@ -170,7 +170,7 @@ a.arrow-title {
 .date {
     font-style: italic;
     bottom: 15px;
-    text-align: right;
+    float: right;
     color: grey;
 }
 
@@ -523,10 +523,9 @@ a {
 }
 
 .file-title {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    float: left;
+    padding-left: 10px;
+    font-weight: 500;
 }
 .pagination-bottom {
     padding-bottom: 10px;
@@ -563,4 +562,24 @@ a {
     padding-left: 0;
     padding: 10px;
     border: 1px solid rgba(0,0,0,0.2);
+}
+
+.item-right ul li {
+    list-style: none outside none;
+    background: url("../images/blue_li_icon.jpg") no-repeat scroll 10px 11px transparent;
+    padding: 2px 5px 10px 10px;
+}
+
+.file-item .name {
+    font-size: 14px;
+}
+
+.clearfix:after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+.clearfix:before {
+  content: ' ';
+  display: table;
 }

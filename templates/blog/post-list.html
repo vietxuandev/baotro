@@ -10,7 +10,7 @@
                 <a href="{% url 'blog:post-detail' %}?id={{ post.id }}">
                     <div class="title">{{ post.title }}</div>
                     <div class="image"><img src="{{ post.image.url }}"></div>
-                    <div class="date">{{ post.created_date }}</div>
+                    <div class="clearfix"><div class="date">{{ post.created_date }}</div></div>
                 </a>
             </div>
         {% endfor %}

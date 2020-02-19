@@ -11,7 +11,7 @@ from blog.models import Post, PostImage, PostVideo, PostFile, Image
 def post_list(request):
     type = request.GET.get('type')
     if type:
-        posts_page =Post.objects.filter(type=str(type)).order_by('-created_date')
+        posts_page =Post.objects.filter(type=type).order_by('-created_date')
     else:
         posts_page = Post.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
@@ -96,7 +96,7 @@ def video_list(request):
 def file_list(request):
     type = request.GET.get('type')
     if type:
-        posts = PostFile.objects.filter(type=str(type)).order_by('-created_date')
+        posts = PostFile.objects.filter(type=type).order_by('-created_date')
     else:
         posts = PostFile.objects.all().order_by('-created_date')
     files = PostFile.objects.all().order_by('-created_date')[:5]
