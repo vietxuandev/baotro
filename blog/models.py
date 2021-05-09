@@ -14,12 +14,12 @@ class Post(models.Model):
         ('2', 'Hoàn cảnh cần giúp đỡ'),
         ('3', 'Thông tin chỉ đạo, điều hành'),
     ]
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    title = models.CharField("Tiêu đề",max_length=200)
-    image = models.ImageField("Hình ảnh minh họa",blank=True)
+    author = models.ForeignKey(get_user_model(),blank=False, on_delete=models.CASCADE)
+    title = models.CharField("Tiêu đề",max_length=200,blank=False)
+    image = models.ImageField("Hình ảnh minh họa",blank=False)
     # video_link = models.URLField(max_length=2000, blank=True)
-    description = models.CharField("Mô tả",max_length=500, blank=True)
-    content = RichTextField("Nội dung",blank=True, null=True)
+    description = models.CharField("Mô tả",max_length=500, blank=False)
+    content = RichTextField("Nội dung",blank=False)
     type = models.CharField("Loại bài đăng",default='0', max_length=100, choices=type_choices)
     created_date = models.DateTimeField("Ngày khởi tạo",default=timezone.now)
 
