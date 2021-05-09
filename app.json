@@ -1,0 +1,11 @@
+ {
+  "apps": [
+    {
+      "name": "baotro",
+      "args": ["runserver","0.0.0.0:80"],
+      "script": "manage.py",
+      "exec_mode": "fork",
+      "exec_interpreter": "python3"
+    }
+  ]
+}
